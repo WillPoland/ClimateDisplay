@@ -40,7 +40,7 @@ class Time
         return year;
       }
     }
-}
+};
 
 
 

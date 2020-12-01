@@ -32,9 +32,10 @@ class Time
     {
       year= aYear;
     }
-    
+
     int getYear()
     {
+      //the intial year is 1980. A year is returned every year till 2025.
       for(int year = setYear(); year <2025; year+=1)
       {
         return year;
@@ -43,12 +44,16 @@ class Time
 };
 
 
-
-
-
-
-/*int main()
+class Temperature
 {
+  
+};
 
+
+
+int main()
+{
+  Time time;
+  time.setYear(1980);
   return 0;
-}*/
+}

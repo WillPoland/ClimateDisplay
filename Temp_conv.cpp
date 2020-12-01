@@ -16,7 +16,14 @@ class Time
   private:
     int year;
   public:
-    Time(aYear)
+    //Default constructor
+    //The Default year is 1980.
+    Time()
+    {
+      year = 1980;
+    }
+    //mutalator Constructor
+    Time(int aYear)
     {
       setYear(aYear);
     }

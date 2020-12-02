@@ -6,6 +6,7 @@ that read int files*/
 // Change in global Temperature is 0.32*F per year since 1981.
 
 #include <iostream>
+#include <list>
 
 using namespace std;
 //Time is it's own intity so there is a class for it.
@@ -15,45 +16,72 @@ class Time
   just this one*/
   private:
     int year;
+    float tempC;
+    float tempF;
   public:
     //Default constructor
     //The Default year is 1980.
     Time()
     {
       year = 1980;
+      tempC = 0;
+      tempF = 0;
     }
     //mutalator Constructor
-    Time(int aYear)
+    Time(int aYear, float aTemp_C, float aTemp_F)
     {
       setYear(aYear);
+      setTemp_C(aTemp_C);
+      setTemp_F(aTemp_F);
+
     }
     //this function will set aYear to year.
     void setYear(int aYear)
     {
       year= aYear;
     }
-
+    //returns the year.
     int getYear()
     {
-      //the intial year is 1980. A year is returned every year till 2025.
-      for(int year = setYear(); year <2025; year+=1)
-      {
-        return year;
-      }
+      return year;
     }
-};
-
-
-class Temperature
-{
-  
+    //this function will set aTemp_C to tempC.
+    void setTemp_C(int aTemp_C)
+    {
+      tempC = aTemp_C;
+    }
+    //returns temperature in celcius.
+    int getTemp_C()
+    {
+      return tempC;
+    }
+    //this function will set aTemp_F to tempF.
+    void setTemp_F(int aTemp_F)
+    {
+      tempF = aTemp_F;
+    }
+    //returns temperature in Farenheit.
+    int getTemp_F()
+    {
+      return tempF;
+    }
 };
 
 
 
 int main()
 {
-  Time time;
-  time.setYear(1980);
+  //intiallize list of years.
+  list<int> years;
+
+  for(int i = 1980; i < 2025; 1++)
+  {
+    Time time;
+    time.setYear(i);
+    year.push_back(setYear(i));
+  }
+
+
+
   return 0;
 }

@@ -10,6 +10,7 @@ that read int files*/
 #include <list>
 //lets me read and write files.
 #include <fstream>
+#include <vector>
 
 using namespace std;
 //Time is it's own intity so there is a class for it.
@@ -88,16 +89,30 @@ int main()
 
   //make file reader next!
 
-  //Declared a variable to store celcius.
+
+
+  ifstream file("1980_temp");
+
+  /*vector<string>cel;
+
   string celcius;
 
-  ifstream file("1980_temp.txt");
-
-  while(getline(file, celcius))
+  while(file >> celcius)
   {
-    cout<<celcius;
+    cel.push_back(celcius);
   }
-  file.close();
+
+  for(string celcius : cel)
+  {
+    cout<<celcius<<endl;
+  }*/
+
+  double celcius;
+
+  while(file>>celcius)
+  {
+    cout<<celcius<<endl;
+  }
 
   return 0;
 }

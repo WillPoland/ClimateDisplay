@@ -6,7 +6,10 @@ that read int files*/
 // Change in global Temperature is 0.32*F per year since 1981.
 
 #include <iostream>
+//lets me use array list.
 #include <list>
+//lets me read and write files.
+#include <fstream>
 
 using namespace std;
 //Time is it's own intity so there is a class for it.
@@ -72,16 +75,27 @@ class Time
 int main()
 {
   //intiallize list of years.
-  list<int> years;
+  //Time is class that the list of year are going through
+  list<Time> years;
 
-  for(int i = 1980; i < 2025; 1++)
+  for(int i = 1980; i <= 2025; i++)
   {
     Time time;
     time.setYear(i);
-    year.push_back(setYear(i));
+    years.push_back(time);
+    cout<<time.getYear()<<endl;
   }
 
+  //make file reader next!
 
+  //Declared a variable to store celcius.
+  float celcius;
+  ifstream file;
+  file.open("1980_temp.txt");
+  file>>celcius;
+  cout<<celcius;
+  file.close();
+  system("pause");
 
   return 0;
 }

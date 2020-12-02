@@ -89,13 +89,15 @@ int main()
   //make file reader next!
 
   //Declared a variable to store celcius.
-  float celcius;
-  ifstream file;
-  file.open("1980_temp.txt");
-  file>>celcius;
-  cout<<celcius;
+  string celcius;
+
+  ifstream file("1980_temp.txt");
+
+  while(getline(file, celcius))
+  {
+    cout<<celcius;
+  }
   file.close();
-  system("pause");
 
   return 0;
 }

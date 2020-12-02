@@ -10,7 +10,8 @@ that read int files*/
 #include <list>
 //lets me read and write files.
 #include <fstream>
-#include <vector>
+//lets me use size();
+#include <iterator>
 
 using namespace std;
 //Time is it's own intity so there is a class for it.
@@ -20,8 +21,8 @@ class Time
   just this one*/
   private:
     int year;
-    float tempC;
-    float tempF;
+    double tempC;
+    double tempF;
   public:
     //Default constructor
     //The Default year is 1980.
@@ -32,7 +33,7 @@ class Time
       tempF = 0;
     }
     //mutalator Constructor
-    Time(int aYear, float aTemp_C, float aTemp_F)
+    Time(int aYear, double aTemp_C, double aTemp_F)
     {
       setYear(aYear);
       setTemp_C(aTemp_C);
@@ -50,22 +51,22 @@ class Time
       return year;
     }
     //this function will set aTemp_C to tempC.
-    void setTemp_C(int aTemp_C)
+    void setTemp_C(double aTemp_C)
     {
       tempC = aTemp_C;
     }
     //returns temperature in celcius.
-    int getTemp_C()
+    double getTemp_C()
     {
       return tempC;
     }
     //this function will set aTemp_F to tempF.
-    void setTemp_F(int aTemp_F)
+    void setTemp_F(double aTemp_F)
     {
       tempF = aTemp_F;
     }
     //returns temperature in Farenheit.
-    int getTemp_F()
+    double getTemp_F()
     {
       return tempF;
     }
@@ -75,37 +76,19 @@ class Time
 
 int main()
 {
+  Time time;
   //intiallize list of years.
   //Time is class that the list of year are going through
   list<Time> years;
 
   for(int i = 1980; i <= 2025; i++)
   {
-    Time time;
     time.setYear(i);
     years.push_back(time);
     cout<<time.getYear()<<endl;
   }
 
-  //make file reader next!
-
-
-
   ifstream file("1980_temp");
-
-  /*vector<string>cel;
-
-  string celcius;
-
-  while(file >> celcius)
-  {
-    cel.push_back(celcius);
-  }
-
-  for(string celcius : cel)
-  {
-    cout<<celcius<<endl;
-  }*/
 
   double celcius;
 
@@ -113,6 +96,15 @@ int main()
   {
     cout<<celcius<<endl;
   }
-
+  for(int i =1; i <= 45;i++)
+  {
+    double a = a+ 0.18;
+    double result = celcius+a;
+    time.setTemp_C(result);
+    cout<<time.getTemp_C()<<endl;
+  }
   return 0;
 }
+/*Found my problem
+Mr.H, No need to worry!
+It had to do with declaring an object.*/

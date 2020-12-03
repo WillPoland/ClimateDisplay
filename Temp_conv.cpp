@@ -1,7 +1,4 @@
-/*I want to add a function
-that read int files*/
 
-//I want to add years
 
 // Change in global Temperature is 0.18*C per year since 1981.
 
@@ -80,6 +77,9 @@ int main()
   //intiallize list of years.
   //Time is class that the list of year are going through
   list<Time> years;
+  cout<<"                    AVERAGE GLOBAL TEMPERATURE"<<endl;
+  cout<<"     ________________________________________________________________"<<endl;
+  cout<<"Years"<<endl;
 
   for(int i = 1980; i <= 2025; i++)
   {
@@ -87,6 +87,8 @@ int main()
     years.push_back(time);
     cout<<time.getYear()<<endl;
   }
+
+  cout<<"Celcuis"<<endl;
   //locates the file
   ifstream file("1980_temp");
   //intiallize variable
@@ -94,7 +96,8 @@ int main()
 //print out data written in variable.
   while(file>>celcius)
   {
-    cout<<celcius<<endl;
+    time.setTemp_C(celcius);
+    cout<<time.getTemp_C()<<endl;
   }
   //reepeats the block of code 45 times
   for(int i =1; i <= 45;i++)
@@ -107,10 +110,11 @@ int main()
     time.setTemp_C(result);
     cout<<time.getTemp_C()<<endl;
   }
-
+  cout<<"Farenheit"<<endl;
   //intialled Farenheit
   double farenheit = (celcius*(9/5))+32;
-  cout<<farenheit<<endl;
+  time.setTemp_F(farenheit);
+  cout<<time.getTemp_F()<<endl;
 
   for(int i =1; i <= 45;i++)
   {

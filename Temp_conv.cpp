@@ -79,14 +79,17 @@ void celciusList()
   double celcius;
 //print out data written in variable.
   double farenheit = (celcius*(9/5))+32;
-
+  
+//intializes the list of years.
   list<Time> years;
-
+//while file is getting stored in the celsius variable
   while(file>>celcius)
   {
+    //the intial year is 1980
     time.setYear(1980);
     time.setTemp_F(farenheit);
     time.setTemp_C(celcius);
+    //returns  years, celsuis, and Farenheit.
     cout<<" "<<time.getYear()<<"   |  "<<time.getTemp_C()<<"   |  "<<time.getTemp_F()<<endl;
     cout<<"================================="<<endl;
   }

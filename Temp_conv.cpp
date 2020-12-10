@@ -7,8 +7,7 @@
 #include <list>
 //lets me read and write files.
 #include <fstream>
-//lets me use size();
-#include <iterator>
+
 
 using namespace std;
 //Time is it's own intity so there is a class for it.
@@ -40,7 +39,16 @@ class Time
     //this function will set aYear to year.
     void setYear(int aYear)
     {
-      year= aYear;
+      /*this if-statement varifies
+      if the year is valid or not before
+      setting it*/
+      if(aYear < 2026 && aYear > 1979)
+      {
+        year= aYear;
+      }else
+      {
+        cout<<"Year invalid"<<endl;
+      }
     }
     //returns the year.
     int getYear()
@@ -72,6 +80,7 @@ class Time
 
 void celciusList()
 {
+  //I decare an object for my class
   Time time;
   //locates the file
   ifstream file("1980_temp");
@@ -79,18 +88,18 @@ void celciusList()
   double celcius;
 //print out data written in variable.
   double farenheit = (celcius*(9/5))+32;
-  
-//intializes the list of years.
+
   list<Time> years;
-//while file is getting stored in the celsius variable
+
+  //This sequence reads desplay celcius.
   while(file>>celcius)
   {
-    //the intial year is 1980
+    //calls void functions in the main class from the other class.
     time.setYear(1980);
     time.setTemp_F(farenheit);
     time.setTemp_C(celcius);
-    //returns  years, celsuis, and Farenheit.
-    cout<<" "<<time.getYear()<<"   |  "<<time.getTemp_C()<<"   |  "<<time.getTemp_F()<<endl;
+    //calls the return functions in the main class from the other class.
+    cout<<" "<<time.getYear()<<"    | "<<time.getTemp_C()<<"     | "<<time.getTemp_F()<<endl;
     cout<<"================================="<<endl;
   }
 
@@ -103,6 +112,9 @@ void celciusList()
     the result will be the arguement for setTemp_C()
     */
     double a = a+ 0.18;
+    /*adds 0.32 to itself, then add it to farenheit
+    the result1 variable will be the arguement for setTemp_F()
+    */
     double b = b+ 0.32;
     double result = celcius+a;
     double result1 = farenheit+b;
@@ -110,21 +122,24 @@ void celciusList()
     time.setYear(result2);
     time.setTemp_C(result);
     time.setTemp_F(result1);
-    cout<<" "<<time.getYear()<<"   |  "<<time.getTemp_C()<<"   |  "<<time.getTemp_F()<<endl;
+    //formats the code.
+    cout<<" "<<time.getYear()<<"    | "<<time.getTemp_C()<<"     | "<<time.getTemp_F()<<endl;
     cout<<"================================="<<endl;
   }
 }
 
 int main()
 {
-  Time time;
-
-  cout<<"           AVERAGE GLOBAL TEMPERATURE"<<endl;
+  //"\n" breaks the line.
+  cout<<"    AVERAGE GLOBAL TEMPERATURE\n"<<endl;
+  cout<<"    By: Will Poland           "<<endl;
   cout<<"_________________________________"<<endl;
   cout<<" Years     celcius     Farenheit"<<endl;
   cout<<"#################################"<<endl;
-
+  //the double data can have up to 5 five decimal places.
   cout.precision(5);
+
+  // calls the method.
   celciusList();
 
   return 0;
